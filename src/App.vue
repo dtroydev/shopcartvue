@@ -1,28 +1,43 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <nav>
+      <h1>The Store</h1>
+    </nav>
+    <Store/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Store from './components/Store.vue';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
-  }
-}
+    Store,
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css?family=Quicksand:400,700");
+@import url("https://fonts.googleapis.com/css?family=Raleway:300i");
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: Quicksand, sans-serif;
+}
+nav h1 {
+  margin: 0;
+}
+
+nav {
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-size: 1.5em;
+  background: linear-gradient(whitesmoke, snow);
 }
 </style>
