@@ -37,12 +37,14 @@
           </div>
         </li>
       </ul>
+      <StoreReviews class="reviews" @reviewSubmitted="reviewSubmitted" :reviews="reviews" />
     </div>
   </div>
 </template>
 
 <script>
 import ImageSource from './ImageSource.vue';
+import StoreReviews from './StoreReviews.vue';
 
 export default {
   name: 'Store',
@@ -51,9 +53,10 @@ export default {
     return {
       baseUrl: 'https://loremflickr.com/200/200/',
       cart: [],
+      reviews: [],
       products: [
         {
-          brand: 'GreatSocks',
+          brand: 'GreatFit',
           product: 'Socks',
           description:
             'Very Comfy Socks. If you wear these socks you will feel all kinds of delight',
@@ -65,7 +68,7 @@ export default {
           ],
         },
         {
-          brand: 'SuperShoes',
+          brand: 'SuperSole',
           product: 'Shoes',
           description:
             'Cool Shoes. Only the cool kids in your neighbourhood wear these, so if you want to be cool, you know what to do',
@@ -79,7 +82,7 @@ export default {
           ],
         },
         {
-          brand: 'ComfyShirts',
+          brand: 'ComfortStyle',
           product: 'Shirts',
           description:
             'Great Shirt. When you want to rise to the occasion, you put on the shirt that lets you shine. This shirt does that',
@@ -108,7 +111,11 @@ export default {
     varietyMouseover(indexProduct, indexVariety) {
       this.products[indexProduct].selectedVariety = indexVariety;
     },
+    reviewSubmitted(review) {
+      this.reviews.push(review);
+    },
     loader() {
+      // nop function testing event reception from image component
     },
   },
   computed: {
@@ -118,6 +125,7 @@ export default {
   },
   components: {
     ImageSource,
+    StoreReviews,
   },
 };
 </script>
@@ -131,6 +139,15 @@ export default {
   margin-top: 100px;
   text-align: center;
   overflow: auto;
+}
+
+.reviews {
+  margin: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border: 1px solid black;
+  min-width: 400px;
 }
 
 .cart {
@@ -373,6 +390,9 @@ span {
   .productgrid {
     width: 90%;
   }
+  .reviews {
+    width: 85%;
+  }
   .description {
     font-size: 0.9em;
   }
@@ -390,6 +410,9 @@ span {
 @media (min-width: 768px) {
   .productgrid {
     width: 70%;
+  }
+  .reviews {
+    width: 65%;
   }
 
   .description {
@@ -409,6 +432,9 @@ span {
   .productgrid {
     width: 50%;
   }
+  .reviews {
+    width: 45%;
+  }
 
   .description {
     font-size: 1em;
@@ -426,6 +452,9 @@ span {
 @media (min-width: 1200px) {
   .productgrid {
     width: 45%;
+  }
+  .reviews {
+    width: 40%;
   }
 
   img {
